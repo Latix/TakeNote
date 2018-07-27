@@ -7,7 +7,12 @@ export default class Register extends Component {
         name: "Kamsi"
     }
     static navigationOptions = {
-        title: 'Register'
+        title: 'Register',
+        headerTintColor: 'white',
+        headerStyle: {
+            backgroundColor: '#4b5f83'
+          },
+          headerTitleStyle: { color: '#FFF' }
     };
     render() {
         var {navigate} = this.props.navigation;

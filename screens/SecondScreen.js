@@ -1,7 +1,7 @@
 import React, {Component } from 'react';
 import { View, Button, Text } from 'react-native';
 // const util = require('util');
-export default class SecondScreen extends Component {
+export default class SecondScreen2 extends Component {
     static navigationOptions = {
         title: 'Second Screen'
     };

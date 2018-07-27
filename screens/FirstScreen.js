@@ -7,7 +7,9 @@ export default class FirstScreen extends Component {
     static navigationOptions = {
         title: 'First Screen'
     };
+    
     render() {
+     
         var {navigate} = this.props.navigation;
         var {params} = this.props.navigation.state;
         return (

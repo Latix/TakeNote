@@ -7,7 +7,12 @@ export default class Login extends Component {
         name: "Kamsi"
     }
     static navigationOptions = {
-        title: 'Login'
+        title: 'Login',
+        headerTintColor: 'white',
+        headerStyle: {
+            backgroundColor: '#4b5f83'
+          },
+          headerTitleStyle: { color: '#FFF' }
     };
     render() {
         var {navigate} = this.props.navigation;
@@ -47,7 +52,7 @@ export default class Login extends Component {
                 />
 
                 <TouchableOpacity style={styles.buttonContainer} onPress={
-                    () => this.state.name === "Kamsi"?navigate("First", {name: "Came From Login"}) : alert('Invalid Details!')
+                    () => this.state.name === "Kamsi"?navigate("ViewTabs", {name: "Came From Login"}) : alert('Invalid Details!')
                 }>
                     <Text style={styles.buttonText}>LOGIN</Text>
                 </TouchableOpacity>
@@ -90,7 +95,7 @@ const styles = StyleSheet.create({
     },
     input: {
         height: 40,
-        backgroundColor: 'rgba(255,255,255,0.2)',
+        backgroundColor: 'rgba(0,0,0,0.5)',
         marginBottom: 10,
         color: '#FFF',
         paddingHorizontal: 10
