@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { StyleSheet } from 'react-native';
 import Login from './src/components/Login/Login';
+import Register from './src/components/Register';
+import { StackNavigator } from 'react-navigation';
+import FirstScreen from './screens/FirstScreen';
+import SecondScreen from './screens/SecondScreen';
 
-
-export default class App extends React.Component {
-  
-  render() {
-    return (
-      <Login />
-    
-    );
-  }
-}
+const Navigation = StackNavigator({
+  LoginScreen: {screen: Login},
+  Register: {screen: Register},
+  First: {screen: FirstScreen},
+  Second: {screen: SecondScreen}
+})
+export default Navigation;
 
 const styles = StyleSheet.create({
   container: {

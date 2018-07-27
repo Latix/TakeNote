@@ -34,7 +34,7 @@ MERGED from [org.webkit:android-jsc:r174650] C:\React_Native\TakeNote\android\ap
 	android:allowBackup
 		ADDED from C:\React_Native\TakeNote\android\app\src\main\AndroidManifest.xml:11:7-34
 	android:icon
-		ADDED from C:\React_Native\TakeNote\android\app\src\main\AndroidManifest.xml:10:7-41
+		ADDED from C:\React_Native\TakeNote\android\app\src\main\AndroidManifest.xml:10:7-44
 	android:theme
 		ADDED from C:\React_Native\TakeNote\android\app\src\main\AndroidManifest.xml:12:7-38
 	android:name
