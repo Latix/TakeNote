@@ -1,5 +1,6 @@
 import React, {Component } from 'react';
-import { View, Button, Text,Image } from 'react-native';
+import { View, Text,Image } from 'react-native';
+import { Card, Button } from 'react-native-material-design';
 
 // const util = require('util');
 
@@ -17,17 +18,31 @@ export default class FirstScreen1 extends Component {
     render() {
        
         return (
-            <View style={
-                {
-                    flex: 1,
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }
-            }>
-               <Text style={{fontSize:30}}>
-                    This is tab 1
-               </Text>
-            </View>
+            <View>
+            <Card>
+                <Card.Media
+                    image={<Image source={require('../assets/note.jpg')} />}
+                    overlay
+                />
+                <Card.Body>
+                    <Text>Some text to go in the body.</Text>
+                </Card.Body>
+                <Card.Actions position="right">
+                    <Button value="ACTION" />
+                </Card.Actions>
+            </Card>
+        </View>
+            // <View style={
+            //     {
+            //         flex: 1,
+            //         justifyContent: 'center',
+            //         alignItems: 'center'
+            //     }
+            // }>
+            //    <Text style={{fontSize:30}}>
+            //         This is tab 1
+            //    </Text>
+            // </View>
         );
     }
 }
