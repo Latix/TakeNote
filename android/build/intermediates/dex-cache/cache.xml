@@ -120,6 +120,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\React_Native\TakeNote\android\app\build\intermediates\exploded-aar\TakeNote\react-native-vector-icons\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="279750fed3c920d06351dbf32889c1b48203c7ad">
+        <dex dex="C:\React_Native\TakeNote\android\app\build\intermediates\pre-dexed\debug\TakeNote-react-native-vector-icons-unspecified_8bdb23f02fdca725b35b247bec0b49629632162c.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\React_Native\TakeNote\android\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.0.1\jars\classes.jar"
         jumboMode="false"
         optimize="true"
