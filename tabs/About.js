@@ -3,12 +3,12 @@ import { View, Button, Text, Image } from 'react-native';
 
 // const util = require('util');
 
-export default class SecondScreen2 extends Component {
+export default class About extends Component {
     static navigationOptions = {
-        tabBarLabel: 'Notes',
+        tabBarLabel: 'About',
         tabBarIcon: ({tintColor}) => (
             <Image
-                source={require('../assets/icons/tab_notes.png')}
+                source={require('../assets/icons/tab_info.png')}
                 style={{width: 22, height: 22, tintColor: 'white'}}
                 >
             </Image>
@@ -25,7 +25,7 @@ export default class SecondScreen2 extends Component {
                 }
             }>
                <Text style={{fontSize:30}}>
-                    This is tab 2
+                    This is tab 3
                </Text>
             </View>
         );

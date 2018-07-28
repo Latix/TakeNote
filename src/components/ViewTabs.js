@@ -1,11 +1,15 @@
 import React, {Component } from 'react';
 import { TabNavigator } from "react-navigation";
-import FirstScreen1 from '../../tabs/FirstScreen1';
-import SecondScreen2 from '../../tabs/SecondScreen2';
+import Home from '../../tabs/Home';
+import Notes from '../../tabs/Notes';
+import About from '../../tabs/About';
+import Settings from '../../tabs/Settings';
 
 var MainScreenNavigator = TabNavigator({
-    Tab1: {screen: FirstScreen1},
-    Tab2: {screen: SecondScreen2}
+    Tab1: {screen: Home},
+    Tab2: {screen: Notes},
+    Tab3: {screen: About},
+    Tab4: {screen: Settings}
   },
   {
       tabBarPosition: 'bottom',

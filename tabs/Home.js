@@ -1,10 +1,9 @@
 import React, {Component } from 'react';
-import { View, Text,Image } from 'react-native';
-//import { Card, Button } from 'react-native-material-design';
+import { View, Button, Text, Image } from 'react-native';
 
 // const util = require('util');
 
-export default class FirstScreen1 extends Component {
+export default class Home extends Component {
     static navigationOptions = {
         tabBarLabel: 'Home',
         tabBarIcon: ({tintColor}) => (
@@ -18,20 +17,7 @@ export default class FirstScreen1 extends Component {
     render() {
        
         return (
-        //     <View>
-        //     <Card>
-        //         <Card.Media
-        //             image={<Image source={require('../assets/icons/note.jpg')} />}
-        //             overlay
-        //         />
-        //         <Card.Body>
-        //             <Text>Some text to go in the body.</Text>
-        //         </Card.Body>
-        //         <Card.Actions position="right">
-        //             <Button value="ACTION" />
-        //         </Card.Actions>
-        //     </Card>
-        // </View>
+        
             <View style={
                 {
                     flex: 1,
@@ -43,6 +29,7 @@ export default class FirstScreen1 extends Component {
                     This is tab 1
                </Text>
             </View>
+       
         );
     }
 }
