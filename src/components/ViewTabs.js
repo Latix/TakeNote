@@ -5,6 +5,7 @@ import Notes from '../../tabs/Notes';
 import About from '../../tabs/About';
 import Settings from '../../tabs/Settings';
 
+
 var MainScreenNavigator = TabNavigator({
     Tab1: {screen: Home},
     Tab2: {screen: Notes},

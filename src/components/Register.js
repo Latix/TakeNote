@@ -4,7 +4,8 @@ import { StyleSheet, View, Image, Text, ImageBackground, StatusBar, TextInput, T
 
 export default class Register extends Component {
     state = {
-        name: "Kamsi"
+        name: "Kamsi",
+        name2: "Kamsi2"
     }
     static navigationOptions = {
         title: 'Register',
@@ -14,6 +15,27 @@ export default class Register extends Component {
           },
           headerTitleStyle: { color: '#FFF' }
     };
+
+    addUser = () => {
+       
+          fetch('https://mynot3s-1853e.firebaseio.com/Users.json/FirstName', {
+            method: 'DELETE',
+            body: JSON.stringify({
+              FirstName: this.state.name,
+              LastName: this.state.name,
+              Password: this.state.name,
+              Username: this.state.name,
+            })
+          })
+          .then((response) => response.json())
+          .then((response) => alert(response))
+        //   .then(res => console.log(res))
+        .catch(() => alert('Error Registering'));
+        //   .catch(err => console.log(err));
+       
+       
+      };
+      
     render() {
         var {navigate} = this.props.navigation;
         return (
@@ -64,8 +86,8 @@ export default class Register extends Component {
                 style={styles.input} 
                 />
 
-                <TouchableOpacity style={styles.buttonContainer} onPress={
-                    () => this.state.name === "Kamsi"?navigate("First", {name: "Came From Login"}) : alert('Invalid Details!')
+                <TouchableOpacity style={styles.buttonContainer} onPress={this.addUser
+                  //  () => this.state.name === "Kamsi"?navigate("First", {name: "Came From Login"}) : alert('Invalid Details!')
                 }>
                     <Text style={styles.buttonText}>Register</Text>
                 </TouchableOpacity>
