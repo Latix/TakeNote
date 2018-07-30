@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "C:\\React_Native\\TakeNote\\android\\app\\build\\intermediates\\res\\merged\\release\\mipmap-mdpi\\ic_note_launch.png",
+        "source": "C:\\React_Native\\TakeNote\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_note_launch.png"
+    },
+    {
+        "merged": "C:\\React_Native\\TakeNote\\android\\app\\build\\intermediates\\res\\merged\\release\\mipmap-mdpi\\ic_launcher.png",
+        "source": "C:\\React_Native\\TakeNote\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+    }
+]

@@ -4,8 +4,10 @@ import { StyleSheet, View, Image, Text, ImageBackground, StatusBar, TextInput, T
 
 export default class Register extends Component {
     state = {
-        name: "Kamsi",
-        name2: "Kamsi2"
+        firstName: '',
+        lastName: '',
+        password: '',
+        username: ''
     }
     static navigationOptions = {
         title: 'Register',
@@ -18,21 +20,22 @@ export default class Register extends Component {
 
     addUser = () => {
        
-          fetch('https://mynot3s-1853e.firebaseio.com/Users.json/FirstName', {
-            method: 'DELETE',
+          fetch('http://192.168.8.245/TakeNote/addUser.php', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+              },
             body: JSON.stringify({
-              FirstName: this.state.name,
-              LastName: this.state.name,
-              Password: this.state.name,
-              Username: this.state.name,
+              FirstName: this.state.firstName,
+              LastName: this.state.lastName,
+              Password: this.state.password,
+              Username: this.state.username
             })
           })
           .then((response) => response.json())
           .then((response) => alert(response))
-        //   .then(res => console.log(res))
         .catch(() => alert('Error Registering'));
-        //   .catch(err => console.log(err));
-       
        
       };
       
@@ -56,6 +59,7 @@ export default class Register extends Component {
                 underlineColorAndroid='transparent'
                 returnKeyType="next"
                 autoCorrect={false}
+                onChangeText={ TextInputValue => this.setState({ firstName : TextInputValue }) }
                 style={styles.input} 
                 />
 
@@ -65,6 +69,7 @@ export default class Register extends Component {
                 underlineColorAndroid='transparent'
                 returnKeyType="next"
                 autoCorrect={false}
+                onChangeText={ TextInputValue => this.setState({ lastName : TextInputValue }) }
                 style={styles.input} 
                 />
 
@@ -74,6 +79,7 @@ export default class Register extends Component {
                 underlineColorAndroid='transparent'
                 returnKeyType="next"
                 autoCorrect={false}
+                onChangeText={ TextInputValue => this.setState({ username : TextInputValue }) }
                 style={styles.input} 
                 />
 
@@ -82,6 +88,7 @@ export default class Register extends Component {
                 placeholderTextColor="rgba(255,255,255,1.2)"
                 underlineColorAndroid='transparent'
                 secureTextEntry
+                onChangeText={ TextInputValue => this.setState({ password : TextInputValue }) }
                 returnKeyType="go"
                 style={styles.input} 
                 />

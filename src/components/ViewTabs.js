@@ -46,5 +46,5 @@ var MainScreenNavigator = TabNavigator({
           headerTitleStyle: { color: '#FFF' }
   }
   
-  export default MainScreenNavigator;
+   export default MainScreenNavigator;
 

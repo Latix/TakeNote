@@ -1,7 +1,7 @@
 import React, {Component } from 'react';
 import {  Image } from 'react-native';
 import {  Toast } from 'react-native-simple-toast';
-import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text, Fab, View, Icon, Button, Drawer } from 'native-base';
+import { Container, Header, Content, List, ListItem, Left, Body, Right, Thumbnail, Text,Title, Fab, View, Icon, Button, Drawer } from 'native-base';
 
 // const util = require('util');
 const dataArray = [
@@ -31,7 +31,7 @@ export default class Home extends Component {
            
             <Container>
              
-        {/* <Header /> */}
+             
         <Content>
         <Button success
         onPress={() =>
