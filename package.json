@@ -1,0 +1,32 @@
+{
+  "name": "TakeNote",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "babel-preset-react-native-stage-0": "^1.0.1",
+    "jest": "^23.4.1",
+    "jest-react-native": "^18.0.0",
+    "react-test-renderer": "16.3.1"
+  },
+  "scripts": {
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "test": "jest"
+  },
+  "jest": {
+    "preset": "react-native"
+  },
+  "dependencies": {
+    "@expo/vector-icons": "^6.3.1",
+    "@shoutem/theme": "^0.11.1",
+    "@shoutem/ui": "^0.23.4",
+    "native-base-shoutem-theme": "^0.2.2",
+    "react": "16.3.1",
+    "react-native": "~0.55.2",
+    "react-native-material-design": "^0.3.7",
+    "react-native-vector-icons": "^5.0.0",
+    "react-navigation": "^1.5.12",
+    "util": "*"
+  }
+}
