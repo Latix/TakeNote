@@ -3,8 +3,7 @@ import { StyleSheet } from 'react-native';
 import Login from './src/components/Login/Login';
 import Register from './src/components/Register';
 import { StackNavigator } from 'react-navigation';
-import FirstScreen from './screens/FirstScreen';
-import SecondScreen from './screens/SecondScreen';
+import AddNote from './src/components/AddNote';
 import ViewTabs from './src/components/ViewTabs';
 
 
@@ -12,8 +11,7 @@ const Navigation = StackNavigator({
   LoginScreen: {screen: Login},
   ViewTabs: { screen: ViewTabs },
   Register: {screen: Register},
-  First: {screen: FirstScreen},
-  Second: {screen: SecondScreen}
+  AddNote: {screen: AddNote},
 })
 
 
