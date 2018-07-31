@@ -1,4 +1,0 @@
-#Mon Jul 30 09:22:51 WAT 2018
-base.0=C\:\\React_Native\\TakeNote\\android\\app\\build\\intermediates\\transforms\\dex\\release\\folders\\1000\\1f\\main
-renamed.0=classes.dex
-file.0=C\:\\React_Native\\TakeNote\\android\\app\\build\\intermediates\\transforms\\dex\\release\\folders\\1000\\1f\\main\\classes.dex

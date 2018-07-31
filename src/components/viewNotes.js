@@ -20,7 +20,7 @@ export default class ViewNotes extends Component {
 
     addNote = () => {
        
-          fetch('http://192.168.8.245/TakeNote/addNote.php', {
+          fetch('http://192.168.8.245/TakeNote/viewNote.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
