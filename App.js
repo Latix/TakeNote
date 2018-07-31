@@ -4,6 +4,7 @@ import Login from './src/components/Login/Login';
 import Register from './src/components/Register';
 import { StackNavigator } from 'react-navigation';
 import AddNote from './src/components/AddNote';
+import ViewNotes from './src/components/ViewNotes';
 import ViewTabs from './src/components/ViewTabs';
 
 
@@ -12,6 +13,7 @@ const Navigation = StackNavigator({
   ViewTabs: { screen: ViewTabs },
   Register: {screen: Register},
   AddNote: {screen: AddNote},
+  ViewNotes: {screen: ViewNotes}
 })
 
 

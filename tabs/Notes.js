@@ -23,7 +23,7 @@ export default class Notes extends Component {
     };
 
     componentDidMount(){
-        return fetch('https://mynot3s-1853e.firebaseio.com/Users.json')
+        return fetch('http://192.168.8.245/TakeNote/ViewNote.php')
           .then((response) => response.json())
           .then((responseJson) => {
             let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -40,9 +40,21 @@ export default class Notes extends Component {
           });
       }
 
+      GetNoteIDFunction=(id,title, note)=>{
+  
+        this.props.navigation.navigate('ViewNotes', { 
+
+          ID : id,
+          TITLE : title,
+          NOTE : note
+
+        });
+
+   }
+
       _onRefresh = () => {
         this.setState({refreshing: true});
-        fetch('https://mynot3s-1853e.firebaseio.com/Users.json')
+        fetch('http://192.168.8.245/TakeNote/ViewNote.php')
           .then((response) => response.json())
           .then((responseJson) => {
             let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -87,10 +99,13 @@ export default class Notes extends Component {
               
                 dataSource={this.state.dataSource}
                 renderRow={data => 
-                  <ListItem onPress={() => alert(data.FirstName)} style={{padding: 20}}>
+                  <ListItem onPress={() => 
+                    this.GetNoteIDFunction.bind(this,data.noteId, data.title, data.note)  
+                  } 
+                  style={{padding: 20}}>
                    <Left>
                   <Icon active name="information-circle" />
-                  <Text> {data.FirstName} </Text>
+                  <Text> {data.title} </Text>
                   </Left>
                   <Body />
                   <Button small danger>
