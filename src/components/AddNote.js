@@ -27,8 +27,8 @@ export default class AddNote extends Component {
                 'Content-Type': 'application/json',
               },
             body: JSON.stringify({
-              Note: this.state.title,
-              Title: this.state.note
+              Note: this.state.note,
+              Title: this.state.title
             })
           })
           .then((response) => response.json())

@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
-import {View,TouchableOpacity} from 'react-native';
+import {View,TouchableOpacity,TextInput} from 'react-native';
 import { Container, Header, Content, Textarea, Form,Input, Item, Button, Icon,Text } from "native-base";
 // import btnPrimaryBg from './native-base-theme/components';
 // import material from './native-base-theme/variables/material';
 
 export default class ViewNotes extends Component {
     state = {
+        Id:'',
         title: '',
         note: ''
     }
+
+  
+
     static navigationOptions = {
-        title: 'Add Note',
+        title: 'Note',
         headerTintColor: 'white',
         headerStyle: {
             backgroundColor: '#4b5f83'
@@ -18,9 +22,19 @@ export default class ViewNotes extends Component {
           headerTitleStyle: { color: '#FFF' }
     };
 
-    addNote = () => {
+    componentDidMount(){
+      // Received Note Details Sent From Previous Activity and Set Into State.
+      this.setState({ 
+        Id : this.props.navigation.state.params.ID,
+        title : this.props.navigation.state.params.TITLE,
+        note: this.props.navigation.state.params.NOTE
+      })
+
+     }
+
+    updateNote = () => {
        
-          fetch('http://192.168.8.245/TakeNote/viewNote.php', {
+          fetch('http://192.168.8.245/TakeNote/ViewNote.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -45,19 +59,19 @@ export default class ViewNotes extends Component {
               <Form>
               <Item regular>
             <Input 
-                placeholder='Title' 
+                value={this.state.title}
                 onChangeText={ TextInputValue => this.setState({ title : TextInputValue }) }
             />
              </Item>
                 <Textarea rowSpan={5} bordered 
-                    placeholder="Note..." 
+                    value={this.state.note}
                     onChangeText={ TextInputValue => this.setState({ note : TextInputValue }) }
                     />
             <View style={{marginTop: 30, flex: 1, alignContent: 'center', justifyContent: 'center', backgroundColor: '#4b5f83'}}>
             <TouchableOpacity  onPress={this.addNote}>
           <Button success full iconLeft onPress={this.addNote}>
             <Icon name='add' />
-            <Text>Add</Text>
+            <Text>Update</Text>
           </Button>
           </TouchableOpacity>
           </View>

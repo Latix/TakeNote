@@ -41,7 +41,7 @@ export default class Notes extends Component {
       }
 
       GetNoteIDFunction=(id,title, note)=>{
-  
+        
         this.props.navigation.navigate('ViewNotes', { 
 
           ID : id,
@@ -99,8 +99,7 @@ export default class Notes extends Component {
               
                 dataSource={this.state.dataSource}
                 renderRow={data => 
-                  <ListItem onPress={() => 
-                    this.GetNoteIDFunction.bind(this,data.noteId, data.title, data.note)  
+                  <ListItem onPress={this.GetNoteIDFunction.bind(this,data.noteId, data.title, data.note)  
                   } 
                   style={{padding: 20}}>
                    <Left>
