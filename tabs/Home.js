@@ -26,7 +26,7 @@ export default class Home extends Component {
         )
     };
     render() {
-       
+      var {navigate} = this.props.navigation;
         return (
            
             <Container>
@@ -94,7 +94,7 @@ export default class Home extends Component {
             containerStyle={{ }}
             style={{ backgroundColor: '#4b5f83' }}
             position="bottomRight"
-            onPress={() => this.setState({ active: !this.state.active })}>
+            onPress={() => navigate("AddNote",{})}>
             <Icon name="add" />
             {/* <Button style={{ backgroundColor: '#34A34F' }}>
               <Icon name="logo-whatsapp" />
