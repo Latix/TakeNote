@@ -18,6 +18,7 @@ export default class AddNote extends Component {
           headerTitleStyle: { color: '#FFF' }
     };
 
+
     addNote = () => {
        
           fetch('http://192.168.8.245/TakeNote/addNote.php', {
@@ -28,7 +29,8 @@ export default class AddNote extends Component {
               },
             body: JSON.stringify({
               Note: this.state.note,
-              Title: this.state.title
+              Title: this.state.title,
+              ID: this.props.navigation.state.params.ID
             })
           })
           .then((response) => response.json())

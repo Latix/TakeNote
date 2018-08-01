@@ -25,7 +25,16 @@ export default class Notes extends Component {
     componentDidMount(){
       
         
-        return fetch('http://192.168.8.245/TakeNote/ViewNote.php')
+          fetch('http://192.168.8.245/TakeNote/ViewNote.php', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+              },
+            body: JSON.stringify({
+              userId: this.props.navigation.state.params.ID
+            })
+          })
           .then((response) => response.json())
           .then((responseJson) => {
             let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
@@ -100,7 +109,16 @@ export default class Notes extends Component {
 }
       _onRefresh = () => {
         this.setState({refreshing: true});
-        fetch('http://192.168.8.245/TakeNote/ViewNote.php')
+        fetch('http://192.168.8.245/TakeNote/ViewNote.php', {
+          method: 'POST',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+          body: JSON.stringify({
+            userId: this.props.navigation.state.params.ID
+          })
+        })
           .then((response) => response.json())
           .then((responseJson) => {
             let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});

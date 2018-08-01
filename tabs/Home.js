@@ -29,13 +29,14 @@ export default class Home extends Component {
 
     render() {
       var {navigate} = this.props.navigation;
+      var {params} = this.props.navigation.state;
         return (
            
             <Container>
              
              
         <Content>
-        <Button success
+        {/* <Button success
         onPress={() =>
               Toast.show({
                 text: "Wrong password!",
@@ -44,50 +45,8 @@ export default class Home extends Component {
                 duration: 3000
               })}>
             <Text>Toast</Text>
-          </Button>
-        <List>
-            <ListItem thumbnail >
-              <Left>
-                <Thumbnail source={ require('../assets/icons/tab_notes.png')} style={{width: 22, height: 22}}/>
-              </Left>
-              <Body>
-                <Text>Kumar Pratik</Text>
-                <Text note>Doing what you like will always keep you happy . .</Text>
-              </Body>
-              <Right>
-                <Text note>3:43 pm</Text>
-                <Button transparent textStyle={{color: "red"}}>
-                  <Text>View</Text>
-                </Button>
-              </Right>
-            </ListItem>
-
-            <ListItem avatar>
-              <Left>
-                <Thumbnail source={ require('../assets/icons/tab_notes.png')} style={{width: 22, height: 22}}/>
-              </Left>
-              <Body>
-                <Text>Kumar Pratik</Text>
-                <Text note>Doing what you like will always keep you happy . .</Text>
-              </Body>
-              <Right>
-                <Text note>3:43 pm</Text>
-              </Right>
-            </ListItem>
-
-            <ListItem avatar>
-              <Left>
-                <Thumbnail source={ require('../assets/icons/tab_notes.png')} style={{width: 22, height: 22}}/>
-              </Left>
-              <Body>
-                <Text>Kumar Pratik</Text>
-                <Text note>Doing what you like will always keep you happy . .</Text>
-              </Body>
-              <Right>
-                <Text note>3:43 pm</Text>
-              </Right>
-            </ListItem>
-          </List>
+          </Button> */}
+          {/* <Text>{params.ID}</Text> */}
           </Content>
         <View style={{ flex: 1 }}>
           <Fab
@@ -96,7 +55,7 @@ export default class Home extends Component {
             containerStyle={{ }}
             style={{ backgroundColor: '#4b5f83' }}
             position="bottomRight"
-            onPress={() => navigate("AddNote",{})}>
+            onPress={() => navigate("AddNote",{ID:params.ID})}>
             <Icon name="add" />
             {/* <Button style={{ backgroundColor: '#34A34F' }}>
               <Icon name="logo-whatsapp" />

@@ -5,7 +5,8 @@ import LoginForm from './LoginForm';
 export default class Login extends Component {
     state = {
         username: '',
-        password: ''
+        password: '',
+        Id: ''
     }
     static navigationOptions = {
         title: 'Login',
@@ -31,17 +32,20 @@ export default class Login extends Component {
         .then((response) => response.json())
         .then((response) => {
             // If server response message same as Data Matched
-       if(response === 'Data Matched')
-       {
+            this.setState({Id: response})
+            this.props.navigation.navigate('ViewTabs', { Email: this.state.username,ID: this.state.Id });
+    //    if(response === 'Data Matched')
+    //    {
 
-           //Then open Profile activity and send user email to profile activity.
-           this.props.navigation.navigate('ViewTabs', { Email: this.state.username });
+    //        //Then open Profile activity and send user email to profile activity.
+           
+           
 
-       }
-       else{
+    //    }
+    //    else{
 
-         Alert.alert(response);
-       }
+    //      Alert.alert(response);
+    //    }
         })
       .catch(() => alert('Invalid Entry!'));
      
