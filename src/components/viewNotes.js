@@ -34,20 +34,21 @@ export default class ViewNotes extends Component {
 
     updateNote = () => {
        
-          fetch('http://192.168.8.245/TakeNote/ViewNote.php', {
+          fetch('http://192.168.8.245/TakeNote/UpdateNote.php', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
               },
             body: JSON.stringify({
-              Note: this.state.title,
-              Title: this.state.note
+              note: this.state.note,
+              title: this.state.title,
+              note_id: this.state.Id
             })
           })
           .then((response) => response.json())
           .then((response) => alert(response))
-        .catch(() => alert('Error Adding Note'));
+        .catch(() => alert('Error Updating Note'));
        
       };
       
@@ -68,8 +69,8 @@ export default class ViewNotes extends Component {
                     onChangeText={ TextInputValue => this.setState({ note : TextInputValue }) }
                     />
             <View style={{marginTop: 30, flex: 1, alignContent: 'center', justifyContent: 'center', backgroundColor: '#4b5f83'}}>
-            <TouchableOpacity  onPress={this.addNote}>
-          <Button success full iconLeft onPress={this.addNote}>
+            <TouchableOpacity  onPress={this.updateNote}>
+          <Button success full iconLeft onPress={this.updateNote}>
             <Icon name='add' />
             <Text>Update</Text>
           </Button>
@@ -81,4 +82,3 @@ export default class ViewNotes extends Component {
         );
     }
 }
-

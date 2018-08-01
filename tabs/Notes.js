@@ -23,6 +23,8 @@ export default class Notes extends Component {
     };
 
     componentDidMount(){
+      
+        
         return fetch('http://192.168.8.245/TakeNote/ViewNote.php')
           .then((response) => response.json())
           .then((responseJson) => {
@@ -38,7 +40,9 @@ export default class Notes extends Component {
           .catch((error) =>{
             console.error(error);
           });
-      }
+     
+    }
+
 
       GetNoteIDFunction=(id,title, note)=>{
         
@@ -115,12 +119,7 @@ export default class Notes extends Component {
                   <Button full onPress={() => alert(data.FirstName)}>
                     <Icon active name="information-circle" />
                   </Button>}
-                renderRightHiddenRow={(data) =>
-                  <Button full danger>
-                    <Icon active name="trash" />
-                  </Button>}
-                leftOpenValue={75}
-                rightOpenValue={-75}
+               
               />
             </Content>
           </Container>

@@ -25,6 +25,28 @@ export default class Home extends Component {
             </Image>
         )
     };
+
+    componentDidMount(){
+      
+        return fetch('http://192.168.8.245/TakeNote/GetUserID.php')
+          .then((response) => response.json())
+          .then((responseJson) => {
+            let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+            this.setState({
+              isLoading: false,
+              dataSource: ds.cloneWithRows(responseJson),
+            }, function(){
+    
+            });
+    
+          })
+          .catch((error) =>{
+            console.error(error);
+          });
+   
+  }
+
+
     render() {
       var {navigate} = this.props.navigation;
         return (
