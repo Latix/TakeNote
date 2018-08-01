@@ -56,6 +56,48 @@ export default class Notes extends Component {
 
    }
 
+   DeleteNote = (id) =>{
+          
+    fetch('http://192.168.8.245/TakeNote/DeleteNote.php', {
+    method: 'POST',
+    headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+  
+      note_id : id
+  
+    })
+  
+    }).then((response) => response.json())
+    .then((responseJson) => {
+  
+      // Showing response message coming from server after Deleting records.
+      alert(responseJson);
+      this.setState({refreshing: true});
+      fetch('http://192.168.8.245/TakeNote/ViewNote.php')
+        .then((response) => response.json())
+        .then((responseJson) => {
+          let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+          this.setState({
+          refreshing: false,
+            dataSource: ds.cloneWithRows(responseJson),
+          }, function(){
+  
+          });
+        })
+        .catch((error) =>{
+          console.error(error);
+        });
+  
+    }).catch((error) => {
+       console.error(error);
+    });
+
+    
+
+}
       _onRefresh = () => {
         this.setState({refreshing: true});
         fetch('http://192.168.8.245/TakeNote/ViewNote.php')
@@ -84,7 +126,7 @@ export default class Notes extends Component {
                 borderTopWidth: 1,
                 borderColor: "#000"
               }}>
-                <ActivityIndicator animating size="large" color="green"/>
+                <ActivityIndicator animating size="large" color="#4b5f83"/>
               </View>
             )
           }
@@ -111,7 +153,7 @@ export default class Notes extends Component {
                   <Text> {data.title} </Text>
                   </Left>
                   <Body />
-                  <Button small danger>
+                  <Button small danger onPress={this.DeleteNote.bind(this,data.noteId)}>
                   <Icon active  name="trash" />
                   </Button>
                   </ListItem>}
