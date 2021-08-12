@@ -4,7 +4,10 @@ import { StyleSheet, View, Image, Text, ImageBackground, StatusBar, TextInput, T
 
 export default class Register extends Component {
     state = {
-        name: "Kamsi"
+        firstName: '',
+        lastName: '',
+        password: '',
+        username: ''
     }
     static navigationOptions = {
         title: 'Register',
@@ -14,6 +17,28 @@ export default class Register extends Component {
           },
           headerTitleStyle: { color: '#FFF' }
     };
+
+    addUser = () => {
+       
+          fetch('http://192.168.8.245/TakeNote/addUser.php', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+              },
+            body: JSON.stringify({
+              FirstName: this.state.firstName,
+              LastName: this.state.lastName,
+              Password: this.state.password,
+              Username: this.state.username
+            })
+          })
+          .then((response) => response.json())
+          .then((response) => alert(response))
+        .catch(() => alert('Error Registering'));
+       
+      };
+      
     render() {
         var {navigate} = this.props.navigation;
         return (
@@ -34,6 +59,7 @@ export default class Register extends Component {
                 underlineColorAndroid='transparent'
                 returnKeyType="next"
                 autoCorrect={false}
+                onChangeText={ TextInputValue => this.setState({ firstName : TextInputValue }) }
                 style={styles.input} 
                 />
 
@@ -43,6 +69,7 @@ export default class Register extends Component {
                 underlineColorAndroid='transparent'
                 returnKeyType="next"
                 autoCorrect={false}
+                onChangeText={ TextInputValue => this.setState({ lastName : TextInputValue }) }
                 style={styles.input} 
                 />
 
@@ -52,6 +79,7 @@ export default class Register extends Component {
                 underlineColorAndroid='transparent'
                 returnKeyType="next"
                 autoCorrect={false}
+                onChangeText={ TextInputValue => this.setState({ username : TextInputValue }) }
                 style={styles.input} 
                 />
 
@@ -60,12 +88,13 @@ export default class Register extends Component {
                 placeholderTextColor="rgba(255,255,255,1.2)"
                 underlineColorAndroid='transparent'
                 secureTextEntry
+                onChangeText={ TextInputValue => this.setState({ password : TextInputValue }) }
                 returnKeyType="go"
                 style={styles.input} 
                 />
 
-                <TouchableOpacity style={styles.buttonContainer} onPress={
-                    () => this.state.name === "Kamsi"?navigate("First", {name: "Came From Login"}) : alert('Invalid Details!')
+                <TouchableOpacity style={styles.buttonContainer} onPress={this.addUser
+                  //  () => this.state.name === "Kamsi"?navigate("First", {name: "Came From Login"}) : alert('Invalid Details!')
                 }>
                     <Text style={styles.buttonText}>Register</Text>
                 </TouchableOpacity>

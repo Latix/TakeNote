@@ -4,7 +4,9 @@ import LoginForm from './LoginForm';
 
 export default class Login extends Component {
     state = {
-        name: "Kamsi"
+        username: '',
+        password: '',
+        Id: ''
     }
     static navigationOptions = {
         title: 'Login',
@@ -13,6 +15,40 @@ export default class Login extends Component {
             backgroundColor: '#4b5f83'
           },
           headerTitleStyle: { color: '#FFF' }
+    };
+    loginUser = () => {
+       
+        fetch('http://192.168.8.245/TakeNote/login.php', {
+          method: 'POST',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+          body: JSON.stringify({
+            Username: this.state.username,
+            Password: this.state.password
+          })
+        })
+        .then((response) => response.json())
+        .then((response) => {
+            // If server response message same as Data Matched
+            this.setState({Id: response})
+            this.props.navigation.navigate('ViewTabs', { Email: this.state.username,ID: this.state.Id });
+    //    if(response === 'Data Matched')
+    //    {
+
+    //        //Then open Profile activity and send user email to profile activity.
+           
+           
+
+    //    }
+    //    else{
+
+    //      Alert.alert(response);
+    //    }
+        })
+      .catch(() => alert('Invalid Entry!'));
+     
     };
     render() {
         var {navigate} = this.props.navigation;
@@ -38,6 +74,8 @@ export default class Login extends Component {
                 placeholderTextColor="rgba(255,255,255,1.2)"
                 underlineColorAndroid='transparent'
                 returnKeyType="next"
+                autoCapitalize="none"
+                onChangeText={TextValue => this.setState({username:TextValue}) }
                 autoCorrect={false}
                 style={styles.input} 
                 />
@@ -47,13 +85,13 @@ export default class Login extends Component {
                 placeholderTextColor="rgba(255,255,255,1.2)"
                 underlineColorAndroid='transparent'
                 secureTextEntry
+                autoCapitalize="none"
+                onChangeText={TextValue => this.setState({password:TextValue}) }
                 returnKeyType="go"
                 style={styles.input} 
                 />
-
-                <TouchableOpacity style={styles.buttonContainer} onPress={
-                    () => this.state.name === "Kamsi"?navigate("ViewTabs", {name: "Came From Login"}) : alert('Invalid Details!')
-                }>
+                
+                <TouchableOpacity style={styles.buttonContainer} onPress={this.loginUser}>
                     <Text style={styles.buttonText}>LOGIN</Text>
                 </TouchableOpacity>
 
