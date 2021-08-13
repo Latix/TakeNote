@@ -7,7 +7,7 @@ import FirstScreen from './screens/FirstScreen';
 import SecondScreen from './screens/SecondScreen';
 import ViewTabs from './src/components/ViewTabs';
 
-
+// This is the nav
 const Navigation = StackNavigator({
   LoginScreen: {screen: Login},
   ViewTabs: { screen: ViewTabs },
